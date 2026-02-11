@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            color: red;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .page.active {
+            display: flex;
+        }
+        h1, h2, p {
+            color: red;
+            margin: 20px 0;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .frame {
+            border: 5px solid red;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #ffe6e6;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .photo {
+            margin: 10px;
+            border: 3px solid red;
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .note {
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div id="page1" class="page active">
+        <h1>Will you be my Valentine?</h1>
+        <button class="button" onclick="showPage('page2')">Yes</button>
+        <button class="button" onclick="alert('Aww, maybe next time!')">No</button>
+    </div>
+
+    <!-- Page 2: Options -->
+    <div id="page2" class="page">
+        <h2>What would you like to explore?</h2>
+        <button onclick="showPage('page3')">My Galaxy</button>
+        <button onclick="showPage('page4')">My Heart Note</button>
+        <button onclick="showPage('page5')">Just Asking</button>
+    </div>
+
+    <!-- Page 3: My Galaxy -->
+    <div id="page3" class="page">
+        <button class="back-button" onclick="showPage('page2')">Back</button>
+        <h2>My Galaxy</h2>
+        <div class="frame">
+            <p class="note">"In your eyes, I see the stars, the galaxies, and all the wonders of the universe. You are my everything, my love."</p>
+            <div class="photo-gallery">
+                <!-- Placeholder images since no specific photos were provided. Replace with actual image URLs. -->
+                <img src="IMG_9792.jpeg" alt="Galaxy Photo 1" class="photo">
+                <img src="IMG_9790.jpeg" alt="Galaxy Photo 2" class="photo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: My Heart Note -->
+    <div id="page4" class="page">
+        <button class="back-button" onclick="showPage('page2')">Back</button>
+        <h2>My Heart Note</h2>
+        <div class="frame">
+            <p class="note">Dear Athu,<br><br>
+            Happy Valentine's Day, my love! You are the beat in my heart, the smile on my face, and the joy in my life. Every moment with you feels like a dream come true. I cherish you more than words can say. Will you be mine forever?<br><br>
+            With all my love,<br>
+            Your Valentine 💖</p>
+        </div>
+    </div>
+
+    <!-- Page 5: Just Asking -->
+    <div id="page5" class="page">
+        <button class="back-button" onclick="showPage('page2')">Back</button>
+        <h2>Just Asking</h2>
+        <div class="frame">
+            <p class="note">Would you like to come on a date with me on 14th Feb?<br><br>
+            If yes, then give me a direct call! 📞<br>
+            If no, then fuck u 🙄</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
